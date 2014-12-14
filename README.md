@@ -1,4 +1,5 @@
-# PostCSS Media Minmax
+# PostCSS Media Minmax [![Build Status](https://travis-ci.org/postcss/postcss-media-minmax.svg)](https://travis-ci.org/postcss/postcss-media-minmax)
+
 
 > Writing simple and graceful Media Queries!
 

@@ -1,10 +1,10 @@
-# PostCSS Media Minmax
+# PostCSS Media Minmax [![Build Status](https://travis-ci.org/postcss/postcss-media-minmax.svg)](https://travis-ci.org/postcss/postcss-media-minmax)
 
 > 写简单优雅的 Media Queries！
 
 Media Queries 中的 `min-width` 和 `max-width` 等属性非常容易混淆，每次看到他们，我都想哭。现在[新的规范](http://dev.w3.org/csswg/mediaqueries/#mq-min-max)中，可以使用更加直观的 `>=`或`<=` 替代 media queries 中的 min-/max- 前缀。
 
-这是一个实现 CSS Media Queries Level 4 Polyfill 的插件，让你现在就可以使用这些特性，妈妈再也不用担心我记不住了，鹅妹子嘤！
+这是一个实现 [CSS Media Queries Level 4](http://dev.w3.org/csswg/mediaqueries/) Polyfill 的插件，让你现在就可以使用这些特性，妈妈再也不用担心我记不住了，鹅妹子嘤！
 
  
 [English](README.md)
@@ -67,6 +67,8 @@ input.css：
 
 ## CSS 语法
 
+### [语法](http://dev.w3.org/csswg/mediaqueries/#mq-syntax)
+
 ```
 <mf-range> = <mf-name> [ '<' | '>' ]? '='? <mf-value>
            | <mf-value> [ '<' | '>' ]? '='? <mf-name>
@@ -74,12 +76,45 @@ input.css：
            | <mf-value> '>' '='? <mf-name> '>' '='? <mf-value>
 ```
 
+## [取值(Values)](http://dev.w3.org/csswg/mediaqueries/#values)
+ 
+**The special values:**
+
+* [<ratio>](http://dev.w3.org/csswg/mediaqueries/#typedef-ratio)
+
+    The <ratio> value type is a positive (not zero or negative) <integer> followed by optional whitespace, followed by a solidus ('/'), followed by optional whitespace, followed by a positive <integer>. <ratio>s can be ordered or compared by transforming them into the number obtained by dividing their first <integer> by their second <integer>.
+
+    ```css
+    @media screen and (device-aspect-ratio: 16 /   9) {
+      /* rules */
+    }
+
+    /* equivalent to */
+    @media screen and (device-aspect-ratio: 16/9) {
+      /* rules */
+    }
+    ```
+
+* [<mq-boolean>](http://dev.w3.org/csswg/mediaqueries/#typedef-mq-boolean)
+
+    The <mq-boolean> value type is an <integer> with the value 0 or 1. Any other integer value is invalid. Note that -0 is always equivalent to 0 in CSS, and so is also accepted as a valid <mq-boolean> value. 
+
+    ```css
+    @media screen and (grid: -0) {
+      /* rules */
+    }
+
+    /* equivalent to */
+    @media screen and (grid: 0) {
+      /* rules */
+    }
+    ```
 
 ## 如何使用
 
 ### 简写
 
-示例 1中同一个 feature name 同时存在 `>=` 和 `<=` 时，可以简写为：
+示例 1中同一个 Media features name 同时存在 `>=` 和 `<=` 时，可以简写为：
 
 ```css
 @media screen and (500px <= width <= 1200px) {
@@ -104,7 +139,7 @@ input.css：
   }
 }
 ```
-**注意**：当 feature name 在中间的时候，一定要保证两个 `<=` 或 `>=` 的方向一致，否则不会转换。
+**注意**：当 Media features name 在中间的时候，一定要保证两个 `<=` 或 `>=` 的方向一致，否则不会转换。
 
 例如在下面的示例中，width 大于等于 500px 同时又大于等于 1200px，这在语法和逻辑上都是错误的。
 
@@ -116,7 +151,7 @@ input.css：
 }
 ```
 
-### 支持的 feature name
+### 支持的 Media features name
 
 规范中目前以下属性支持 min-/max 前缀，PostCSS Media Minmax 全部支持自动转换。
 
@@ -139,7 +174,7 @@ input.css：
 var fs = require('fs')
 var chokidar = require('chokidar')
 var postcss = require('postcss')
-var minmax = require('minmax')
+var minmax = require('postcss-media-minmax')
 var customMedia = require('postcss-custom-media')
 
 var src = 'input.css'
