@@ -30,7 +30,10 @@ function mediaMinmax() {
        * (width <= 900px) => (max-width: 900px)
        */
 
-      rule.params = rule.params.replace(/\(\s*([a-z-]+?)\s*([<>]=)\s*((?:-?\d*\.?\d+[a-z]*)?)\s*\)/gi, function($0, $1, $2, $3) {
+      //取值不支持负值
+      //But -0 is always equivalent to 0 in CSS, and so is also accepted as a valid <mq-boolean> value.
+
+      rule.params = rule.params.replace(/\(\s*([a-z-]+?)\s*([<>]=)\s*((?:-?\d*\.?(?:\s*\/?\s*)?\d+[a-z]*)?)\s*\)/gi, function($0, $1, $2, $3) {
 
         var params = '';
 
@@ -54,7 +57,7 @@ function mediaMinmax() {
        * (900px >= width >= 300px)  => (min-width: 300px) and (max-width: 900px)
        */
 
-      rule.params = rule.params.replace(/\(\s*((?:-?\d*\.?\d+[a-z]*)?)\s*(<=|>=)\s*([a-z-]+)\s*(<=|>=)\s*((?:-?\d*\.?\d+[a-z]*)?)\s*\)/gi, function($0, $1, $2, $3, $4, $5) {
+      rule.params = rule.params.replace(/\(\s*((?:-?\d*\.?(?:\s*\/?\s*)?\d+[a-z]*)?)\s*(<=|>=)\s*([a-z-]+)\s*(<=|>=)\s*((?:-?\d*\.?(?:\s*\/?\s*)?\d+[a-z]*)?)\s*\)/gi, function($0, $1, $2, $3, $4, $5) {
 
         if (feature_name.indexOf($3) > -1) {
           if ($2 === '<=' && $4 === '<=' || $2 === '>=' && $4 === '>=') {
@@ -67,6 +70,7 @@ function mediaMinmax() {
         return $0;
 
       });
+
     });
 
   }
