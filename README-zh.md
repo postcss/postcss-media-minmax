@@ -76,13 +76,15 @@ input.css：
            | <mf-value> '>' '='? <mf-name> '>' '='? <mf-value>
 ```
 
+PostCSS Media Minmax 目前并没有实现 `200px >= width` 或者 `200px <= width` 这样的语法，因为这样的语法可读性并不不是太好。
+
 ## [取值(Values)](http://dev.w3.org/csswg/mediaqueries/#values)
  
 **The special values:**
 
 * [<ratio>](http://dev.w3.org/csswg/mediaqueries/#typedef-ratio)
 
-    The <ratio> value type is a positive (not zero or negative) <integer> followed by optional whitespace, followed by a solidus ('/'), followed by optional whitespace, followed by a positive <integer>. <ratio>s can be ordered or compared by transforming them into the number obtained by dividing their first <integer> by their second <integer>.
+    <ratio> 是一个正（非零非负）的 <integer>（整型）取值，其后跟随0个或多个空白，接着跟随一个斜线（“/”），再跟随0个或多个空白，最后跟随一个正<integer>。
 
     ```css
     @media screen and (device-aspect-ratio: 16 /   9) {
@@ -97,7 +99,7 @@ input.css：
 
 * [<mq-boolean>](http://dev.w3.org/csswg/mediaqueries/#typedef-mq-boolean)
 
-    The <mq-boolean> value type is an <integer> with the value 0 or 1. Any other integer value is invalid. Note that -0 is always equivalent to 0 in CSS, and so is also accepted as a valid <mq-boolean> value. 
+    <mq-boolean> 值是一个 0 或 1 的 <integer>（整型）取值。其他任何整数无效。注意， 在 CSS 中 -0 总是等价于 0 的，所以也作为一种有效的 <mq-boolean> 取值。  
 
     ```css
     @media screen and (grid: -0) {

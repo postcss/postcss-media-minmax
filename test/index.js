@@ -20,7 +20,7 @@ function compareFixtures(t, name, msg, opts, postcssOpts) {
 
 test("@media", function(t) {
   compareFixtures(t, "width-height", "should transform")
-  compareFixtures(t, "device-width-height", "should transform")    
+  compareFixtures(t, "device-width-height", "should transform")
   compareFixtures(t, "aspect-ratio", "should transform")
   compareFixtures(t, "device-aspect-ratio", "should transform")
   compareFixtures(t, "color", "should transform")
@@ -29,17 +29,9 @@ test("@media", function(t) {
   compareFixtures(t, "resolution", "should transform")
 
   compareFixtures(t, "comment", "should transform")
-  compareFixtures(t, "comment", "should transform")
-  compareFixtures(t, "line-break", "should transform") 
+  compareFixtures(t, "line-break", "should transform")
   compareFixtures(t, "other-name", "should transform")
-  compareFixtures(t, "more-units", "should transform") 
-
-  // compareFixtures(t, "extension", "local extensions", {
-  //   extensions: {
-  //     ':--any' : 'section, article, aside, nav',
-  //     '--foo': 'input[type="text"] > section, #nav .bar'
-  //   }
-  // })
+  compareFixtures(t, "more-units", "should transform")
 
   t.end()
 })

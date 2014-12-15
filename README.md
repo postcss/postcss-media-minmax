@@ -3,9 +3,9 @@
 
 > Writing simple and graceful Media Queries!
 
-The `min-width`,`max-width` and so on propertys of Media Queries is really easy to confuse, every time I see them, I want to cry. Right now in the new specs, you can use more intuitive  <= or >= to instead of the  min-/max- prefix of media queries.
+The `min-width`,`max-width` and many other propertys of Media Queries are really confused, every time I see them, I want to cry. Right now in the new specs, you can use more intuitive  <= or >= to instead of the  min-/max- prefix of media queries.
 
-This is a supporting CSS Media Queries Level 4 Polyfill plugin,which let you can ues these features right now. Mom won't never worry  about my study, so amazing!
+This is a supporting [CSS Media Queries Level 4](http://dev.w3.org/csswg/mediaqueries/) Polyfill plugin,which let you can ues these features right now. Mom won't never worry  about my study, so amazing!
 
 
 [简体中文](README-zh.md)
@@ -68,6 +68,8 @@ You will get：
 
 ## CSS syntax
 
+### [Syntax](http://dev.w3.org/csswg/mediaqueries/#mq-syntax)
+
 ```
 <mf-range> = <mf-name> [ '<' | '>' ]? '='? <mf-value>
            | <mf-value> [ '<' | '>' ]? '='? <mf-name>
@@ -75,12 +77,47 @@ You will get：
            | <mf-value> '>' '='? <mf-name> '>' '='? <mf-value>
 ```
 
+PostCSS Media Minmax is currently doesn't implement the `200px > = width` or `200px < = width` such a grammar, because the syntax readability this not too good.
+
+## [Values](http://dev.w3.org/csswg/mediaqueries/#values)
+ 
+**The special values:**
+
+* [<ratio>](http://dev.w3.org/csswg/mediaqueries/#typedef-ratio)
+
+    The <ratio> value type is a positive (not zero or negative) <integer> followed by optional whitespace, followed by a solidus ('/'), followed by optional whitespace, followed by a positive <integer>. <ratio>s can be ordered or compared by transforming them into the number obtained by dividing their first <integer> by their second <integer>.
+
+    ```css
+    @media screen and (device-aspect-ratio: 16 /   9) {
+      /* rules */
+    }
+
+    /* equivalent to */
+    @media screen and (device-aspect-ratio: 16/9) {
+      /* rules */
+    }
+    ```
+
+* [<mq-boolean>](http://dev.w3.org/csswg/mediaqueries/#typedef-mq-boolean)
+
+    The <mq-boolean> value type is an <integer> with the value 0 or 1. Any other integer value is invalid. Note that -0 is always equivalent to 0 in CSS, and so is also accepted as a valid <mq-boolean> value. 
+
+    ```css
+    @media screen and (grid: -0) {
+      /* rules */
+    }
+
+    /* equivalent to */
+    @media screen and (grid: 0) {
+      /* rules */
+    }
+    ```
 
 ## How to use
 
 ### Shorthand
 
-In Example 1, the same feature name is `>=` and `<=`,  which will be    abbreviated as the following:
+In Example 1, the same feature name is >= and <=, which will be abbreviated as the following:
 
 ```css
 @media screen and (500px <= width <= 1200px) {
@@ -106,7 +143,7 @@ Will get the same output results:
 }
 ```
 
-**Note**: when the feature name in the middle, we must ensure that two `<=` or `>=` in the same direction, otherwise which will not be converted.
+**Note**: When the Media features name in the middle, we must ensure that two `<=` or `>=` in the same direction, otherwise which will not be converted.
 
 E.g. in the example below, width is greater than or equal to 500px and is greater than or equal to 1200px, this is the wrong in grammar and logic.
 
@@ -119,7 +156,7 @@ E.g. in the example below, width is greater than or equal to 500px and is greate
 }
 ```
 
-### feature name
+### Media features name
 
 The following property supports the min-/max prefix in specification at present, which will be automatically converted by PostCSS Media Minmax.
 
@@ -142,7 +179,7 @@ The following property supports the min-/max prefix in specification at present,
 var fs = require('fs')
 var chokidar = require('chokidar')
 var postcss = require('postcss')
-var minmax = require('minmax')
+var minmax = require('postcss-media-minmax')
 var customMedia = require('postcss-custom-media')
 
 var src = 'input.css'
