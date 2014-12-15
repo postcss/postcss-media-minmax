@@ -1,8 +1,7 @@
 {
   "name": "postcss-media-minmax",
   "version": "1.0.0",
-  "description": "Writing simple and graceful Media Queries!Using more intuitive `>=` or `<=` instead of media queries min/max prefix.",
-  "main": "index.js",
+  "description": "Using more intuitive `>=` or `<=` instead of media queries min/max prefix.",
   "scripts": {
     "test": "tape test"
   },
@@ -15,12 +14,14 @@
     "css3",
     "postcss",
     "postcss-plugins",
-    "Media Queries"
+    "media querie",
+    "media queries"
   ],
   "author": "yisi",
   "license": "MIT",
   "files": [
     "CHANGELOG.md",
+    "README.md",
     "README-zh.md",
     "LICENSE",
     "index.js"
