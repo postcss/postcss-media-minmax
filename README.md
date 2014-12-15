@@ -77,7 +77,7 @@ You will get：
            | <mf-value> '>' '='? <mf-name> '>' '='? <mf-value>
 ```
 
-PostCSS Media Minmax is currently doesn't implement the `200px > = width` or `200px < = width` such a grammar, because the syntax readability this not too good.
+PostCSS Media Minmax doesn't implement such syntax as `200px > = width` or `200px < = width` currently, because the syntax readability is not good enough.
 
 ## [Values](http://dev.w3.org/csswg/mediaqueries/#values)
  
