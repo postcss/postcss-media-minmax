@@ -1,11 +1,11 @@
 # PostCSS Media Minmax [![Build Status](https://travis-ci.org/postcss/postcss-media-minmax.svg)](https://travis-ci.org/postcss/postcss-media-minmax)
 
 
-> Writing simple and graceful Media Queries!
+> Writing simple and graceful media queries!
 
-The `min-width`,`max-width` and many other propertys of Media Queries are really confused, every time I see them, I want to cry. Right now in the new specs, you can use more intuitive  <= or >= to instead of the  min-/max- prefix of media queries.
+The `min-width`, `max-width` and many other properties of media queries are really confusing. I want to cry every time I see them. But right now according to the new specs, you can use more intuitive `<=` or `>=` to replace the  `min-`/`max-` prefixes in media queries.
 
-This is a supporting [CSS Media Queries Level 4](http://dev.w3.org/csswg/mediaqueries/) Polyfill plugin,which let you can ues these features right now. Mom won't never worry  about my study, so amazing!
+This is a polyfill plugin which supports [CSS Media Queries Level 4](http://dev.w3.org/csswg/mediaqueries/) and gives you access to the new features right away. Mom will never worry about my study any more. So amazing!
 
 
 [简体中文](README-zh.md)
@@ -77,7 +77,7 @@ You will get：
            | <mf-value> '>' '='? <mf-name> '>' '='? <mf-value>
 ```
 
-PostCSS Media Minmax doesn't implement such syntax as `200px > = width` or `200px < = width` currently, because the syntax readability is not good enough.
+PostCSS Media Minmax hasn't implemented syntax such as `200px > = width` or `200px < = width` currently because its readability is not good enough yet.
 
 ## [Values](http://dev.w3.org/csswg/mediaqueries/#values)
  
@@ -117,7 +117,7 @@ PostCSS Media Minmax doesn't implement such syntax as `200px > = width` or `200p
 
 ### Shorthand
 
-In Example 1, the same feature name is >= and <=, which will be abbreviated as the following:
+In Example 1, if a feature has both `>=` and `<=` logic, it can be written as follows:
 
 ```css
 @media screen and (500px <= width <= 1200px) {
@@ -133,7 +133,7 @@ In Example 1, the same feature name is >= and <=, which will be abbreviated as t
 }
 ```
 
-Will get the same output results:
+Which will output:
 
 ```css
 @media screen and (min-width: 500px) and (max-width: 1200px) {
@@ -143,9 +143,9 @@ Will get the same output results:
 }
 ```
 
-**Note**: When the Media features name in the middle, we must ensure that two `<=` or `>=` in the same direction, otherwise which will not be converted.
+**Note**: When the media feature name is in the middle, we must ensure that two `<=` or `>=` are in the same direction, otherwise which will not be converted.
 
-E.g. in the example below, width is greater than or equal to 500px and is greater than or equal to 1200px, this is the wrong in grammar and logic.
+E.g. in the example below, `width` is greater than or equal to 500px and is greater than or equal to 1200px, which is the wrong in both grammar and logic.
 
 
 ```css
@@ -156,9 +156,9 @@ E.g. in the example below, width is greater than or equal to 500px and is greate
 }
 ```
 
-### Media features name
+### Media feature names
 
-The following property supports the min-/max prefix in specification at present, which will be automatically converted by PostCSS Media Minmax.
+The following properties support the `min-`/`max-` prefixes in the specifications at present, and will be automatically converted by PostCSS Media Minmax.
 
 * `width`
 * `height`
@@ -173,7 +173,7 @@ The following property supports the min-/max prefix in specification at present,
 
 
 
-### Support for use in `@custom-media` & Node Watch
+### Using with `@custom-media` & Node Watch
 
 ```js
 var fs = require('fs')
@@ -275,10 +275,10 @@ gulp.watch('src/*.css', ['default']);
 
 ## Contributing
 
-* Install the relevant dependent module.
-* Respect coding style（Use [EditorConfig](http://editorconfig.org/)）.
+* Install all the dependent modules.
+* Respect the coding style (Use [EditorConfig](http://editorconfig.org/)).
 * Add test cases in the [test](test) directory.
-* Run test.
+* Run the test cases.
 
 ```
 $ git clone https://github.com/postcss/postcss-media-minmaxs.git
@@ -289,11 +289,11 @@ $ npm test
 
 ## Acknowledgements
 
-* Thank the author of PostCSS [Andrey Sitnik](https://github.com/ai) for giving us so simple and easy CSS syntax analysis tools.
+* Thank the author of PostCSS [Andrey Sitnik](https://github.com/ai) for giving us such simple and easy CSS syntax analysis tools.
 
-* Thank [Tab Atkins Jr.](http://xanthir.com/contact/) for writing the specs of  Media Queries Level 4.
+* Thank [Tab Atkins Jr.](http://xanthir.com/contact/) for writing the specs of Media Queries Level 4.
 
-* Thank [ziyunfei](http://weibo.com/p/1005051708684567) for suggestion and help of this plugin.
+* Thank [ziyunfei](http://weibo.com/p/1005051708684567) for suggestions and help of this plugin.
 
 
 ## [Changelog](CHANGELOG.md)
