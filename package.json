@@ -27,7 +27,7 @@
     "index.js"
   ],
   "devDependencies": {
-    "postcss": "^3.0.7",
+    "postcss": "^4.0.2",
     "tape": "^3.0.0"
   },
   "bugs": {
