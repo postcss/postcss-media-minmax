@@ -1,7 +1,6 @@
-module.exports = mediaMinmax
+var postcss = require('postcss');
 
-
-function mediaMinmax() {
+module.exports = postcss.plugin('postcss-media-minmax', function () {
   return function(css) {
     //支持 min-/max- 前缀的属性
     var feature_name = [
@@ -74,4 +73,4 @@ function mediaMinmax() {
     });
 
   }
-}
+});
