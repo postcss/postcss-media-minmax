@@ -1,4 +1,9 @@
-# PostCSS Media Minmax [![Build Status](https://travis-ci.org/postcss/postcss-media-minmax.svg)](https://travis-ci.org/postcss/postcss-media-minmax)
+# PostCSS Media Minmax
+
+[![Build Status](https://travis-ci.org/postcss/postcss-media-minmax.svg?branch=master)](https://travis-ci.org/postcss/postcss-media-minmax) 
+[![NPM Downloads](https://img.shields.io/npm/dm/postcss-media-minmax.svg?style=flat)](https://www.npmjs.com/package/postcss-media-minmax) 
+[![NPM Version](http://img.shields.io/npm/v/postcss-media-minmax.svg?style=flat)](https://www.npmjs.com/package/postcss-media-minmax) 
+[![License](https://img.shields.io/npm/l/postcss-media-minmax.svg?style=flat)](http://opensource.org/licenses/MIT) 
 
 > 写简单优雅的 Media Queries！
 
