@@ -1,6 +1,6 @@
 {
   "name": "postcss-media-minmax",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Using more intuitive `>=` or `<=` instead of media queries min/max prefix.",
   "scripts": {
     "test": "tape test"
