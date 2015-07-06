@@ -13,7 +13,7 @@
     "css",
     "css3",
     "postcss",
-    "postcss-plugins",
+    "postcss-plugin",
     "media querie",
     "media queries"
   ],
@@ -26,8 +26,10 @@
     "LICENSE",
     "index.js"
   ],
+  "dependencies": {
+    "postcss": "^4.1.14"
+  },
   "devDependencies": {
-    "postcss": "^4.0.2",
     "tape": "^3.0.0"
   },
   "bugs": {
