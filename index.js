@@ -17,7 +17,7 @@ module.exports = postcss.plugin('postcss-media-minmax', function () {
     ]
 
     // 读取 media-feature
-    css.eachAtRule(function(rule, i) {
+    css.walkAtRules(function(rule, i) {
       if (rule.name !== "media" && rule.name !== "custom-media") {
         return
       }
