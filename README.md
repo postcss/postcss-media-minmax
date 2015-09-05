@@ -50,7 +50,7 @@ var output = postcss(minmax())
   .css
 ```
 
-input.css：
+input.css:
 
 ```css
 @media screen and (width >= 500px) and (width <= 1200px) {
@@ -60,7 +60,7 @@ input.css：
 }
 ```
 
-You will get：
+You will get:
 
 ```css
 @media screen and (min-width: 500px) and (max-width: 1200px) {
@@ -80,6 +80,8 @@ You will get：
            | <mf-value> '<' '='? <mf-name> '<' '='? <mf-value>
            | <mf-value> '>' '='? <mf-name> '>' '='? <mf-value>
 ```
+
+![syntax](http://gtms03.alicdn.com/tps/i3/TB1Rje0HXXXXXXeXpXXccZJ0FXX-640-290.png)
 
 PostCSS Media Minmax hasn't implemented syntax such as `200px > = width` or `200px < = width` currently because its readability is not good enough yet.
 

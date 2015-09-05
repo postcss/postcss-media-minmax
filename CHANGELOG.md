@@ -1,6 +1,10 @@
+# 2.0.0 2015-09-05
+
+Change: Use PostCSS 5.0 API.
+
 # 1.2.0 2015-07-06
 
-Use PostCSS 4.1 plugin API.
+Change: Use PostCSS 4.1 plugin API.
 
 # 1.1.0 2014-12-15
 
