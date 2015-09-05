@@ -1,3 +1,7 @@
+# 2.1.0 2015-09-05
+
+Add: Support for `<` and `>` without `=`.
+
 # 2.0.0 2015-09-05
 
 Change: Use PostCSS 5.0 API.

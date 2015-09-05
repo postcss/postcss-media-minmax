@@ -33,5 +33,7 @@ test("@media", function(t) {
   compareFixtures(t, "other-name", "should transform")
   compareFixtures(t, "more-units", "should transform")
 
+  compareFixtures(t, "min-max", "should transform")
+
   t.end()
 })
