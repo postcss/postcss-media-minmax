@@ -81,6 +81,8 @@ input.css：
            | <mf-value> '>' '='? <mf-name> '>' '='? <mf-value>
 ```
 
+![syntax](http://gtms03.alicdn.com/tps/i3/TB1Rje0HXXXXXXeXpXXccZJ0FXX-640-290.png)
+
 PostCSS Media Minmax 目前并没有实现 `200px >= width` 或者 `200px <= width` 这样的语法，因为这样的语法可读性并不不是太好。
 
 ## [取值(Values)](http://dev.w3.org/csswg/mediaqueries/#values)
