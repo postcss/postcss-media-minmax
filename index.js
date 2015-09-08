@@ -32,7 +32,7 @@ module.exports = postcss.plugin('postcss-media-minmax', function () {
 
     function create_query(name, gtlt, eq, value, params) {
       return value.replace(/([-\d\.]+)(.*)/, function (match, number, unit) {
-        number = parseFloat(number) || eq ? eq ? number : parseFloat(number) + step * power[gtlt] : power[gtlt] + feature_unit[name];
+        number = parseFloat(number) || eq ? eq ? number : Number(Math.round(parseFloat(number) + step * power[gtlt] + 'e6')+'e-6') : power[gtlt] + feature_unit[name];
 
         return '(' + minmax[gtlt] + '-' + name + ': ' + number + unit + ')';
       });
