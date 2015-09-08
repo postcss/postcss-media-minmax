@@ -10,6 +10,10 @@
 
 }
 
+@media screen and (min-width: 13.801rem) and (max-width: 51.2rem) {
+
+}
+
 @media screen and (min-width: 6.001in) and (max-width: 8.999in) {
 
 }
@@ -31,6 +35,10 @@
 }
 
 @media screen and (min-height: 40.001em) and (max-height: 59.999em) {
+
+}
+
+@media screen and (min-height: 13.8rem) and (max-height: 51.199000000000005rem) {
 
 }
 

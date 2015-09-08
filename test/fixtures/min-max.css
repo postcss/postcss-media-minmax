@@ -10,6 +10,10 @@
 
 }
 
+@media screen and (13.8rem < width <= 51.2rem) {
+
+}
+
 @media screen and (6in < width < 9in) {
 
 }
@@ -31,6 +35,10 @@
 }
 
 @media screen and (40em < height < 60em) {
+
+}
+
+@media screen and (13.8rem <= height < 51.2rem) {
 
 }
 
