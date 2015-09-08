@@ -9,6 +9,8 @@
 
 Media Queries 中的 `min-width` 和 `max-width` 等属性非常容易混淆，每次看到他们，我都想哭。现在[新的规范](http://dev.w3.org/csswg/mediaqueries/#mq-min-max)中，可以使用更加直观的 `>=`或`<=` 替代 media queries 中的 min-/max- 前缀。
 
+**V2.1.0 开始支持 `>` 或 `<` 符号。**
+
 这是一个实现 [CSS Media Queries Level 4](http://dev.w3.org/csswg/mediaqueries/) Polyfill 的插件，让你现在就可以使用这些特性，妈妈再也不用担心我记不住了，鹅妹子嘤！
 
  
