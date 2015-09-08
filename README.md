@@ -9,6 +9,8 @@
 
 The `min-width`, `max-width` and many other properties of media queries are really confusing. I want to cry every time I see them. But right now according to the new specs, you can use more intuitive `<=` or `>=` to replace the  `min-`/`max-` prefixes in media queries.
 
+V2.1.0 began to support `>` or `<` symbol.
+
 This is a polyfill plugin which supports [CSS Media Queries Level 4](http://dev.w3.org/csswg/mediaqueries/) and gives you access to the new features right away. Mom will never worry about my study any more. So amazing!
 
 
