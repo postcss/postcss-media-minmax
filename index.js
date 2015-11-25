@@ -32,11 +32,17 @@ module.exports = postcss.plugin('postcss-media-minmax', function () {
 
     function create_query(name, gtlt, eq, value, params) {
       return value.replace(/([-\d\.]+)(.*)/, function (match, number, unit) {
+        var initialNumber = parseFloat(number);
 
         if (parseFloat(number) || eq) {
           // if eq is true, then number remains same
           if (!eq) {
-            number = Number(Math.round(parseFloat(number) + step * power[gtlt] + 'e6')+'e-6');
+            // change integer pixels value only on integer pixel
+            if (unit === 'px' && initialNumber === parseInt(number, 10)) {
+              number = initialNumber + power[gtlt];
+            } else {
+              number = Number(Math.round(parseFloat(number) + step * power[gtlt] + 'e6')+'e-6');
+            }
           }
         } else {
           number = power[gtlt] + feature_unit[name];
