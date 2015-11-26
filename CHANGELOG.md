@@ -1,3 +1,7 @@
+# 2.1.1 2015-11-26
+
+Fix: Pixels rounding errors in fractional pixels media queries.
+
 # 2.1.0 2015-09-08
 
 Add: Support for `<` and `>` without `=`.
