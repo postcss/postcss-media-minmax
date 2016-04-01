@@ -80,9 +80,11 @@ module.exports = postcss.plugin('postcss-media-minmax', function () {
       })
 
       /**
-       * 转换  <mf-value> <|>= <mf-name> <|>= <mf-value>
-       *   $1   $2  $3  $4$5  $5
+       * 转换  <mf-value> <|<= <mf-name> <|<= <mf-value>
+       * 转换  <mf-value> >|>= <mf-name> >|>= <mf-value>
+       *   $1  $2$3 $4  $5$6  $7
        * (500px <= width <= 1200px) => (min-width: 500px) and (max-width: 1200px)
+       * (500px < width <= 1200px) => (min-width: 501px) and (max-width: 1200px)
        * (900px >= width >= 300px)  => (min-width: 300px) and (max-width: 900px)
        */
 
@@ -90,10 +92,22 @@ module.exports = postcss.plugin('postcss-media-minmax', function () {
 
         if (feature_name.indexOf($4) > -1) {
           if ($2 === '<' && $5 === '<' || $2 === '>' && $5 === '>') {
-             var min = ($2 === '<') ? $1 : $7;
-             var max = ($2 === '<') ? $7 : $1;
+            var min = ($2 === '<') ? $1 : $7;
+            var max = ($2 === '<') ? $7 : $1;
 
-             return create_query($4, '>', $3, min) + ' and ' + create_query($4, '<', $6, max);
+            // output differently depended on expression direction
+            // <mf-value> <|<= <mf-name> <|<= <mf-value>
+            // or
+            // <mf-value> >|>= <mf-name> >|>= <mf-value>
+            var equals_for_min = $3;
+            var equals_for_max = $6;
+
+            if ($2 === '>') {
+              equals_for_min = $6;
+              equals_for_max = $3;
+            }
+
+            return create_query($4, '>', equals_for_min, min) + ' and ' + create_query($4, '<', equals_for_max, max);
           }
         }
         //如果不是指定的属性，不做替换
