@@ -1,3 +1,7 @@
+# 2.1.2 2016-04-01
+
+Fix: incorrect output when using both > and >= (or similar).(#12)
+
 # 2.1.1 2015-11-26
 
 Fix: Pixels rounding errors in fractional pixels media queries.
