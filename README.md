@@ -11,7 +11,7 @@ The `min-width`, `max-width` and many other properties of media queries are real
 
 V2.1.0 began to support `>` or `<` symbol.
 
-This is a polyfill plugin which supports [CSS Media Queries Level 4](http://dev.w3.org/csswg/mediaqueries/) and gives you access to the new features right away. Mom will never worry about my study any more. So amazing!
+This is a polyfill plugin which supports [CSS Media Queries Level 4](https://drafts.csswg.org/mediaqueries/#mq-range-context) and gives you access to the new features right away. Mom will never worry about my study any more. So amazing!
 
 
 [简体中文](README-zh.md)

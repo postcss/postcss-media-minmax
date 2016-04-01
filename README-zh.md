@@ -7,7 +7,7 @@
 
 > 写简单优雅的 Media Queries！
 
-Media Queries 中的 `min-width` 和 `max-width` 等属性非常容易混淆，每次看到他们，我都想哭。现在[新的规范](http://dev.w3.org/csswg/mediaqueries/#mq-min-max)中，可以使用更加直观的 `>=`或`<=` 替代 media queries 中的 min-/max- 前缀。
+Media Queries 中的 `min-width` 和 `max-width` 等属性非常容易混淆，每次看到他们，我都想哭。现在[新的规范](https://drafts.csswg.org/mediaqueries/#mq-range-context)中，可以使用更加直观的 `>=`或`<=` 替代 media queries 中的 min-/max- 前缀。
 
 **V2.1.0 开始支持 `>` 或 `<` 符号。**
 
