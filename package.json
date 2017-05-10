@@ -27,10 +27,10 @@
     "index.js"
   ],
   "dependencies": {
-    "postcss": "^5.0.4"
+    "postcss": "^6.0.1"
   },
   "devDependencies": {
-    "tape": "^3.0.0"
+    "tape": "^4.6.3"
   },
   "bugs": {
     "url": "https://github.com/postcss/postcss-media-minmax/issues"
