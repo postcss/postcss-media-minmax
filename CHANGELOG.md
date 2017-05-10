@@ -1,3 +1,7 @@
+# 3.0.0 2017-05-10
+
+Change: Use PostCSS 6 API.
+
 # 2.1.2 2016-04-01
 
 Fix: incorrect output when using both > and >= (or similar).(#12)
