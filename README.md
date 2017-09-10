@@ -1,5 +1,6 @@
 # PostCSS Media Minmax
 
+[![CSS Standard Status](https://jonathantneal.github.io/css-db/badge/mediaqueries-mq-ranges.svg)](https://jonathantneal.github.io/css-db/#mediaqueries-mq-ranges)
 [![Build Status](https://travis-ci.org/postcss/postcss-media-minmax.svg?branch=master)](https://travis-ci.org/postcss/postcss-media-minmax) 
 [![NPM Downloads](https://img.shields.io/npm/dm/postcss-media-minmax.svg?style=flat)](https://www.npmjs.com/package/postcss-media-minmax) 
 [![NPM Version](http://img.shields.io/npm/v/postcss-media-minmax.svg?style=flat)](https://www.npmjs.com/package/postcss-media-minmax) 
