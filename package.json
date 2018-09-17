@@ -24,8 +24,11 @@
     "LICENSE",
     "index.js"
   ],
+  "engines": {
+    "node": ">=6.0.0"
+  },
   "dependencies": {
-    "postcss": "^6.0.1"
+    "postcss": "^7.0.2"
   },
   "devDependencies": {
     "npmpub": "^3.1.0",
