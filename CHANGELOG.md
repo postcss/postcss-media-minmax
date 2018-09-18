@@ -1,3 +1,8 @@
+# 4.0.0 2017-09-17
+
+- Updated: Support for PostCSS v7+
+- Updated: Support for Node v6+
+
 # 3.0.0 2017-05-10
 
 Change: Use PostCSS 6 API.
