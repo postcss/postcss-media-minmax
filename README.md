@@ -1,10 +1,10 @@
 # PostCSS Media Minmax
 
-[![CSS Standard Status](https://jonathantneal.github.io/css-db/badge/mediaqueries-mq-ranges.svg)](https://jonathantneal.github.io/css-db/#mediaqueries-mq-ranges)
+[![CSS Standard Status](https://cssdb.org/badge/media-query-ranges.svg)](https://cssdb.org/#media-query-ranges)
 [![Build Status](https://travis-ci.org/postcss/postcss-media-minmax.svg?branch=master)](https://travis-ci.org/postcss/postcss-media-minmax) 
 [![NPM Downloads](https://img.shields.io/npm/dm/postcss-media-minmax.svg?style=flat)](https://www.npmjs.com/package/postcss-media-minmax) 
-[![NPM Version](http://img.shields.io/npm/v/postcss-media-minmax.svg?style=flat)](https://www.npmjs.com/package/postcss-media-minmax) 
-[![License](https://img.shields.io/npm/l/postcss-media-minmax.svg?style=flat)](http://opensource.org/licenses/MIT) 
+[![NPM Version](https://img.shields.io/npm/v/postcss-media-minmax.svg?style=flat)](https://www.npmjs.com/package/postcss-media-minmax) 
+[![License](https://img.shields.io/npm/l/postcss-media-minmax.svg?style=flat)](https://opensource.org/licenses/MIT) 
 
 > Writing simple and graceful media queries!
 
@@ -19,7 +19,7 @@ This is a polyfill plugin which supports [CSS Media Queries Level 4](https://dra
 
 -----
 
-![Gif Demo](http://gtms02.alicdn.com/tps/i2/TB1UIjyGVXXXXcCaXXXx274FpXX-877-339.gif)
+![Gif Demo](https://gtms02.alicdn.com/tps/i2/TB1UIjyGVXXXXcCaXXXx274FpXX-877-339.gif)
 
 
 ## Installation
@@ -75,7 +75,7 @@ You will get:
 
 ## CSS syntax
 
-### [Syntax](http://dev.w3.org/csswg/mediaqueries/#mq-syntax)
+### [Syntax](https://drafts.csswg.org/mediaqueries/#mq-range-context)
 
 ```
 <mf-range> = <mf-name> [ '<' | '>' ]? '='? <mf-value>
@@ -84,15 +84,15 @@ You will get:
            | <mf-value> '>' '='? <mf-name> '>' '='? <mf-value>
 ```
 
-![syntax](http://gtms03.alicdn.com/tps/i3/TB1Rje0HXXXXXXeXpXXccZJ0FXX-640-290.png)
+![syntax](https://gtms03.alicdn.com/tps/i3/TB1Rje0HXXXXXXeXpXXccZJ0FXX-640-290.png)
 
 PostCSS Media Minmax hasn't implemented syntax such as `200px > = width` or `200px < = width` currently because its readability is not good enough yet.
 
-## [Values](http://dev.w3.org/csswg/mediaqueries/#values)
+## [Values](https://drafts.csswg.org/mediaqueries/#values)
  
 **The special values:**
 
-* [<ratio>](http://dev.w3.org/csswg/mediaqueries/#typedef-ratio)
+* [<ratio>](https://drafts.csswg.org/mediaqueries/#typedef-ratio)
 
     The <ratio> value type is a positive (not zero or negative) <integer> followed by optional whitespace, followed by a solidus ('/'), followed by optional whitespace, followed by a positive <integer>. <ratio>s can be ordered or compared by transforming them into the number obtained by dividing their first <integer> by their second <integer>.
 
@@ -107,7 +107,7 @@ PostCSS Media Minmax hasn't implemented syntax such as `200px > = width` or `200
     }
     ```
 
-* [<mq-boolean>](http://dev.w3.org/csswg/mediaqueries/#typedef-mq-boolean)
+* [<mq-boolean>](https://drafts.csswg.org/mediaqueries/#typedef-mq-boolean)
 
     The <mq-boolean> value type is an <integer> with the value 0 or 1. Any other integer value is invalid. Note that -0 is always equivalent to 0 in CSS, and so is also accepted as a valid <mq-boolean> value. 
 
@@ -285,7 +285,7 @@ gulp.watch('src/*.css', ['default']);
 ## Contributing
 
 * Install all the dependent modules.
-* Respect the coding style (Use [EditorConfig](http://editorconfig.org/)).
+* Respect the coding style (Use [EditorConfig](https://editorconfig.org/)).
 * Add test cases in the [test](test) directory.
 * Run the test cases.
 
@@ -300,9 +300,9 @@ $ npm test
 
 * Thank the author of PostCSS [Andrey Sitnik](https://github.com/ai) for giving us such simple and easy CSS syntax analysis tools.
 
-* Thank [Tab Atkins Jr.](http://xanthir.com/contact/) for writing the specs of Media Queries Level 4.
+* Thank [Tab Atkins Jr.](https://www.xanthir.com/contact/) for writing the specs of Media Queries Level 4.
 
-* Thank [ziyunfei](http://weibo.com/p/1005051708684567) for suggestions and help of this plugin.
+* Thank [ziyunfei](https://weibo.com/p/1005051708684567) for suggestions and help of this plugin.
 
 
 ## [Changelog](CHANGELOG.md)
