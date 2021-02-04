@@ -14,8 +14,6 @@ const feature_unit = {
 // Supported min-/max- attributes
 const feature_name = Object.keys(feature_unit);
 
-const step = .001; // smallest even number that won’t break complex queries (1in = 96px)
-
 const power = {
   '>': 1,
   '<': -1
@@ -30,18 +28,22 @@ function create_query(name, gtlt, eq, value) {
   return value.replace(/([-\d\.]+)(.*)/, function (_match, number, unit) {
     const initialNumber = parseFloat(number);
 
-    if (parseFloat(number) || eq) {
-      // if eq is true, then number remains same
-      if (!eq) {
-        // change integer pixels value only on integer pixel
-        if (unit === 'px' && initialNumber === parseInt(number, 10)) {
-          number = initialNumber + power[gtlt];
-        } else {
-          number = Number(Math.round(parseFloat(number) + step * power[gtlt] + 'e6')+'e-6');
-        }
+    // if eq is true, then number remains same
+    if (!eq) {
+      if (!initialNumber) {
+        unit = feature_unit[name];
       }
-    } else {
-      number = power[gtlt] + feature_unit[name];
+      let step;
+      if (unit === 'px' && initialNumber === Math.round(initialNumber)) {
+        // change integer pixels by .02px to work around a Safari rounding bug:
+        // https://bugs.webkit.org/show_bug.cgi?id=178261
+        // https://github.com/twbs/bootstrap/pull/25177
+        step = .02;
+      } else {
+        // smallest even number that won’t break complex queries (1in = 96px)
+        step = .001;
+      }
+      number = Number((initialNumber + step * power[gtlt]).toFixed(6));
     }
 
     return '(' + minmax[gtlt] + '-' + name + ': ' + number + unit + ')';
