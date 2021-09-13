@@ -1,9 +1,9 @@
 # PostCSS Media Minmax
 
-[![Build Status](https://travis-ci.org/postcss/postcss-media-minmax.svg?branch=master)](https://travis-ci.org/postcss/postcss-media-minmax) 
-[![NPM Downloads](https://img.shields.io/npm/dm/postcss-media-minmax.svg?style=flat)](https://www.npmjs.com/package/postcss-media-minmax) 
-[![NPM Version](http://img.shields.io/npm/v/postcss-media-minmax.svg?style=flat)](https://www.npmjs.com/package/postcss-media-minmax) 
-[![License](https://img.shields.io/npm/l/postcss-media-minmax.svg?style=flat)](http://opensource.org/licenses/MIT) 
+[![Build Status](https://travis-ci.org/postcss/postcss-media-minmax.svg?branch=master)](https://travis-ci.org/postcss/postcss-media-minmax)
+[![NPM Downloads](https://img.shields.io/npm/dm/postcss-media-minmax.svg?style=flat)](https://www.npmjs.com/package/postcss-media-minmax)
+[![NPM Version](http://img.shields.io/npm/v/postcss-media-minmax.svg?style=flat)](https://www.npmjs.com/package/postcss-media-minmax)
+[![License](https://img.shields.io/npm/l/postcss-media-minmax.svg?style=flat)](http://opensource.org/licenses/MIT)
 
 > 写简单优雅的 Media Queries！
 
@@ -13,7 +13,7 @@ Media Queries 中的 `min-width` 和 `max-width` 等属性非常容易混淆，�
 
 这是一个实现 [CSS Media Queries Level 4](http://dev.w3.org/csswg/mediaqueries/) Polyfill 的插件，让你现在就可以使用这些特性，妈妈再也不用担心我记不住了，鹅妹子嘤！
 
- 
+
 [English](README.md)
 
 -----
@@ -40,8 +40,8 @@ var output = postcss()
   .use(minmax())
   .process(css)
   .css
-  
-console.log('\n====>Output CSS:\n', output)  
+
+console.log('\n====>Output CSS:\n', output)
 ```
 
 或者只需：
@@ -88,7 +88,7 @@ input.css：
 PostCSS Media Minmax 目前并没有实现 `200px >= width` 或者 `200px <= width` 这样的语法，因为这样的语法可读性并不不是太好。
 
 ## [取值(Values)](http://dev.w3.org/csswg/mediaqueries/#values)
- 
+
 **The special values:**
 
 * [<ratio>](http://dev.w3.org/csswg/mediaqueries/#typedef-ratio)
@@ -108,7 +108,7 @@ PostCSS Media Minmax 目前并没有实现 `200px >= width` 或者 `200px <= wid
 
 * [<mq-boolean>](http://dev.w3.org/csswg/mediaqueries/#typedef-mq-boolean)
 
-    <mq-boolean> 值是一个 0 或 1 的 <integer>（整型）取值。其他任何整数无效。注意， 在 CSS 中 -0 总是等价于 0 的，所以也作为一种有效的 <mq-boolean> 取值。  
+    <mq-boolean> 值是一个 0 或 1 的 <integer>（整型）取值。其他任何整数无效。注意， 在 CSS 中 -0 总是等价于 0 的，所以也作为一种有效的 <mq-boolean> 取值。
 
     ```css
     @media screen and (grid: -0) {
@@ -217,7 +217,7 @@ input.css:
 @custom-media --bar (height >= 300px) and (height <= 600px);
 
 @media (--foo) and (--bar) {
-  
+
 }
 ```
 
@@ -225,7 +225,7 @@ output.css:
 
 ```css
 @media (min-width: 20em) and (max-width: 50em) and (min-height: 300px) and (max-height: 600px) {
-  
+
 }
 ```
 
@@ -262,7 +262,7 @@ module.exports = function(grunt) {
 var gulp = require('gulp');
 var rename = require('gulp-rename');
 var postcss = require('gulp-postcss');
-var selector = require('postcss-media-minmax')
+var minmax = require('postcss-media-minmax')
 var autoprefixer = require('autoprefixer-core')
 
 gulp.task('default', function () {

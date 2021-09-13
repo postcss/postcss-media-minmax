@@ -1,10 +1,10 @@
 # PostCSS Media Minmax
 
 [![CSS Standard Status](https://cssdb.org/badge/media-query-ranges.svg)](https://cssdb.org/#media-query-ranges)
-[![Build Status](https://travis-ci.org/postcss/postcss-media-minmax.svg?branch=master)](https://travis-ci.org/postcss/postcss-media-minmax) 
-[![NPM Downloads](https://img.shields.io/npm/dm/postcss-media-minmax.svg?style=flat)](https://www.npmjs.com/package/postcss-media-minmax) 
-[![NPM Version](https://img.shields.io/npm/v/postcss-media-minmax.svg?style=flat)](https://www.npmjs.com/package/postcss-media-minmax) 
-[![License](https://img.shields.io/npm/l/postcss-media-minmax.svg?style=flat)](https://opensource.org/licenses/MIT) 
+[![Build Status](https://travis-ci.org/postcss/postcss-media-minmax.svg?branch=master)](https://travis-ci.org/postcss/postcss-media-minmax)
+[![NPM Downloads](https://img.shields.io/npm/dm/postcss-media-minmax.svg?style=flat)](https://www.npmjs.com/package/postcss-media-minmax)
+[![NPM Version](https://img.shields.io/npm/v/postcss-media-minmax.svg?style=flat)](https://www.npmjs.com/package/postcss-media-minmax)
+[![License](https://img.shields.io/npm/l/postcss-media-minmax.svg?style=flat)](https://opensource.org/licenses/MIT)
 
 > Writing simple and graceful media queries!
 
@@ -41,8 +41,8 @@ var output = postcss()
   .use(minmax())
   .process(css)
   .css
-  
-console.log('\n====>Output CSS:\n', output)  
+
+console.log('\n====>Output CSS:\n', output)
 ```
 
 Or just:
@@ -89,7 +89,7 @@ You will get:
 PostCSS Media Minmax hasn't implemented syntax such as `200px > = width` or `200px < = width` currently because its readability is not good enough yet.
 
 ## [Values](https://drafts.csswg.org/mediaqueries/#values)
- 
+
 **The special values:**
 
 * [<ratio>](https://drafts.csswg.org/mediaqueries/#typedef-ratio)
@@ -109,7 +109,7 @@ PostCSS Media Minmax hasn't implemented syntax such as `200px > = width` or `200
 
 * [<mq-boolean>](https://drafts.csswg.org/mediaqueries/#typedef-mq-boolean)
 
-    The <mq-boolean> value type is an <integer> with the value 0 or 1. Any other integer value is invalid. Note that -0 is always equivalent to 0 in CSS, and so is also accepted as a valid <mq-boolean> value. 
+    The <mq-boolean> value type is an <integer> with the value 0 or 1. Any other integer value is invalid. Note that -0 is always equivalent to 0 in CSS, and so is also accepted as a valid <mq-boolean> value.
 
     ```css
     @media screen and (grid: -0) {
@@ -220,7 +220,7 @@ input.css:
 @custom-media --bar (height >= 300px) and (height <= 600px);
 
 @media (--foo) and (--bar) {
-  
+
 }
 ```
 
@@ -228,7 +228,7 @@ output.css:
 
 ```css
 @media (min-width: 20em) and (max-width: 50em) and (min-height: 300px) and (max-height: 600px) {
-  
+
 }
 ```
 
@@ -265,7 +265,7 @@ module.exports = function(grunt) {
 var gulp = require('gulp');
 var rename = require('gulp-rename');
 var postcss = require('gulp-postcss');
-var selector = require('postcss-media-minmax')
+var minmax = require('postcss-media-minmax')
 var autoprefixer = require('autoprefixer-core')
 
 gulp.task('default', function () {
