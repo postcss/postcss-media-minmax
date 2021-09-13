@@ -262,7 +262,7 @@ module.exports = function(grunt) {
 var gulp = require('gulp');
 var rename = require('gulp-rename');
 var postcss = require('gulp-postcss');
-var selector = require('postcss-media-minmax')
+var minmax = require('postcss-media-minmax')
 var autoprefixer = require('autoprefixer-core')
 
 gulp.task('default', function () {
