@@ -3,8 +3,7 @@
   "version": "5.0.0",
   "description": "Using more intuitive `>=`, `<=`, `>`, `<` instead of media queries min/max prefix.",
   "scripts": {
-    "test": "tape test",
-    "release": "npmpub"
+    "test": "tape test"
   },
   "repository": "https://github.com/postcss/postcss-media-minmax.git",
   "keywords": [
@@ -28,11 +27,10 @@
     "node": ">=10.0.0"
   },
   "peerDependencies": {
-    "postcss": "^8.1.0"
+    "postcss": "^8.3.7"
   },
   "devDependencies": {
-    "npmpub": "^4.1.0",
-    "postcss": "^8.1.0",
-    "tape": "^4.9.1"
+    "postcss": "^8.3.7",
+    "tape": "^5.3.1"
   }
 }
