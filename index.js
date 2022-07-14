@@ -60,9 +60,11 @@ function transform(rule) {
     return
   }
 
+  // In PostCSS version 8.4.6, this will contain comments that need to be removed manually
+  rule.params = rule.params.replace(/\/\*.*\*\//gs, '')
+
   // The value doesn't support negative values
   // But -0 is always equivalent to 0 in CSS, and so is also accepted as a valid <mq-boolean> value.
-
   rule.params = rule.params.replace(/\(\s*([a-z-]+?)\s*([<>])(=?)\s*((?:-?\d*\.?(?:\s*\/?\s*)?\d+[a-z]*)?)\s*\)/gi, function($0, $1, $2, $3, $4) {
     if (feature_name.indexOf($1) > -1) {
       return create_query($1, $2, $3, $4);

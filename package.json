@@ -27,10 +27,10 @@
     "node": ">=10.0.0"
   },
   "peerDependencies": {
-    "postcss": "8.4.5"
+    "postcss": "8.4.6"
   },
   "devDependencies": {
-    "postcss": "8.4.5",
+    "postcss": "8.4.6",
     "tape": "^5.3.1"
   }
 }
