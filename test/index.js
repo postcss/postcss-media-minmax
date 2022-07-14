@@ -18,6 +18,11 @@ function compareFixtures(t, name, msg, opts, postcssOpts) {
   t.equal(actual.trim(), expected.trim(), msg)
 }
 
+test.only("@media 2", function(t) {
+  compareFixtures(t, "comment2", "should transform")
+  t.end()
+})
+
 test("@media", function(t) {
   compareFixtures(t, "width-height", "should transform")
   compareFixtures(t, "device-width-height", "should transform")

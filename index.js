@@ -61,7 +61,11 @@ function transform(rule) {
   }
 
   // In PostCSS version 8.4.6, this will contain comments that need to be removed manually
-  rule.params = rule.params.replace(/\/\*.*\*\//gs, '')
+  // rule.params = rule.params.replace(/\/\*.*\*\//gs, '')
+  console.log(rule.params)
+  // PostCSS >= 8.4.6, output: screen and (/* comment */width >= 500px)
+  // PostCSS < 8.4.6,  output: screen and (width >= 500px)
+
 
   // The value doesn't support negative values
   // But -0 is always equivalent to 0 in CSS, and so is also accepted as a valid <mq-boolean> value.
