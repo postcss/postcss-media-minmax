@@ -206,7 +206,6 @@ function getMediaConditionListWithAndFromAncestry(mediaInParens: MediaInParens, 
     return focus;
   }
 
-  focus = ancestry.get(focus);
   if (!isMediaAnd(focus)) {
     return;
   }

@@ -10,7 +10,7 @@
 
 @media screen and (min-width:1px) and (max-width:500.579px) {}
 
-@media screen and (width) and  ( (min-width:0.081px) and (max-width:0.679px)) {}
+@media screen and (width) and (min-width:0.081px) and (max-width:0.679px) {}
 
 /* height */
 @media screen and (min-height:501px) and (max-height:1199px) {}
@@ -25,4 +25,4 @@
 
 @media screen and (min-height:1px) and (max-height:500.579px) {}
 
-@media screen and (height) and  ( (min-height:0.081px) and (max-height:0.679px)) {}
+@media screen and (height) and (min-height:0.081px) and (max-height:0.679px) {}
