@@ -12,7 +12,7 @@
     "css3",
     "postcss",
     "postcss-plugin",
-    "media querie",
+    "media query",
     "media queries"
   ],
   "author": "yisi",
@@ -35,7 +35,7 @@
     "dist"
   ],
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=14.0.0"
   },
   "dependencies": {
     "@csstools/css-parser-algorithms": "^1.0.0",

@@ -23,9 +23,12 @@ test("@media", function(t) {
   compareFixtures(t, "device-width-height", "should transform")
   compareFixtures(t, "aspect-ratio", "should transform")
   compareFixtures(t, "device-aspect-ratio", "should transform")
+  compareFixtures(t, "calc", "should transform")
+  compareFixtures(t, "complex", "should transform")
   compareFixtures(t, "color", "should transform")
   compareFixtures(t, "color-index", "should transform")
   compareFixtures(t, "monochrome", "should transform")
+  compareFixtures(t, "operators", "should transform")
   compareFixtures(t, "resolution", "should transform")
 
   compareFixtures(t, "comment", "should transform")
@@ -35,6 +38,8 @@ test("@media", function(t) {
 
   compareFixtures(t, "min-max", "should transform")
   compareFixtures(t, "shorthands", "should transform shorthands")
+
+  compareFixtures(t, "unknown-feature", "should not transform")
 
   t.end()
 })
