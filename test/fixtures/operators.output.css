@@ -26,10 +26,16 @@
 
 @media  (min-width: 300px) and (max-width: 1000px) {}
 
-@media  (max-width: 299px) and (min-width: 1001px) {}
+@media  (min-width: 1001px) and (max-width: 299px) {}
 
-@media  (max-width: 300px) and (min-width: 1001px) {}
+@media  (min-width: 1001px) and (max-width: 300px) {}
 
-@media  (max-width: 299px) and (min-width: 1000px) {}
+@media  (min-width: 1000px) and (max-width: 299px) {}
 
-@media  (max-width: 300px) and (min-width: 1000px) {}
+@media  (min-width: 1000px) and (max-width: 300px) {}
+
+@media (300px > width < 1000px) {}
+
+@media (300px < width > 1000px) {}
+
+@media (300px = width = 1000px) {}

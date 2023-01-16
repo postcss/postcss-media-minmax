@@ -33,3 +33,9 @@
 @media (300px > width >= 1000px) {}
 
 @media (300px >= width >= 1000px) {}
+
+@media (300px > width < 1000px) {}
+
+@media (300px < width > 1000px) {}
+
+@media (300px = width = 1000px) {}

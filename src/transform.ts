@@ -1,6 +1,6 @@
 import { gatherNodeAncestry } from '@csstools/css-parser-algorithms';
 import { TokenType } from '@csstools/css-tokenizer';
-import { isMediaAnd, isMediaCondition, isMediaConditionListWithAnd, isMediaFeature, isMediaFeatureRange, isMediaFeatureRangeNameValue, isMediaFeatureRangeValueName, isMediaInParens, isMediaQuery, MediaAnd, MediaCondition, MediaConditionListWithAnd, MediaFeature, MediaInParens, MediaQuery, parse } from '@csstools/media-query-list-parser';
+import { isMediaAnd, isMediaCondition, isMediaConditionListWithAnd, isMediaFeature, isMediaFeatureRange, isMediaFeatureRangeNameValue, isMediaFeatureRangeValueName, isMediaInParens, isMediaQuery, MediaAnd, MediaCondition, MediaConditionListWithAnd, MediaFeature, MediaInParens, MediaQuery, MediaFeatureLT, parse } from '@csstools/media-query-list-parser';
 import { transformSingleNameValuePair } from './transform-single-pair';
 
 const supportedFeatureNames = new Set([
@@ -77,7 +77,11 @@ export function transform(mediaQueryListString: string) {
           return;
         }
 
-        featureOne = transformed;
+        if (operator === MediaFeatureLT.LT || operator === MediaFeatureLT.LT_OR_EQ) {
+          featureOne = transformed;
+        } else {
+          featureTwo = transformed;
+        }
       }
 
       {
@@ -91,7 +95,11 @@ export function transform(mediaQueryListString: string) {
           return;
         }
 
-        featureTwo = transformed;
+        if (operator === MediaFeatureLT.LT || operator === MediaFeatureLT.LT_OR_EQ) {
+          featureTwo = transformed;
+        } else {
+          featureOne = transformed;
+        }
       }
 
       const parensOne = new MediaInParens(
