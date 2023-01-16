@@ -1,5 +1,5 @@
 import { ComponentValue, isFunctionNode, isTokenNode } from '@csstools/css-parser-algorithms';
-import { NumberType, TokenType } from '@csstools/css-tokenizer';
+import { CSSToken, NumberType, TokenType } from '@csstools/css-tokenizer';
 import { invertComparison, matchesRatioExactly, MediaFeature, MediaFeatureComparison, MediaFeatureEQ, MediaFeatureGT, MediaFeatureLT, MediaFeatureValue, newMediaFeaturePlain } from '@csstools/media-query-list-parser';
 
 const unitsForFeature = {
@@ -35,6 +35,13 @@ const power = {
 const step = .001; // smallest even number that won’t break complex queries (1in = 96px)
 
 export function transformSingleNameValuePair(name: string, operator: MediaFeatureComparison, value: MediaFeatureValue, nameBeforeValue: boolean): MediaFeature | null {
+  let tokensBefore: Array<CSSToken> = value.before;
+  let tokensAfter: Array<CSSToken> = value.after;
+  if (!nameBeforeValue) {
+    tokensBefore = value.after;
+    tokensAfter = value.before;
+  }
+
   if (!nameBeforeValue) {
     const invertedOperator = invertComparison(operator);
     if (invertedOperator === false) {
@@ -45,12 +52,21 @@ export function transformSingleNameValuePair(name: string, operator: MediaFeatur
   }
 
   if (operator === MediaFeatureEQ.EQ || operator === MediaFeatureLT.LT_OR_EQ || operator === MediaFeatureGT.GT_OR_EQ) {
-    const transformed = newMediaFeaturePlain(
-      featureNamePrefix(operator) + name,
-      ...value.tokens(),
-    );
-
-    return transformed;
+    if (Array.isArray(value.value)) {
+      return newMediaFeaturePlain(
+        featureNamePrefix(operator) + name,
+        ...tokensBefore,
+        ...value.value.flatMap(x => x.tokens()),
+        ...tokensAfter,
+      );
+    } else {
+      return newMediaFeaturePlain(
+        featureNamePrefix(operator) + name,
+        ...tokensBefore,
+        ...value.value.tokens(),
+        ...tokensAfter,
+      );
+    }
   }
 
   if (Array.isArray(value.value) && matchesRatioExactly(value.value)) {
@@ -80,8 +96,9 @@ export function transformSingleNameValuePair(name: string, operator: MediaFeatur
       valueToken = [TokenType.Number, tokenValue.toString(), -1, -1, { value: tokenValue, type: NumberType.Integer }];
     }
 
-    const transformed = newMediaFeaturePlain(
+    return newMediaFeaturePlain(
       featureNamePrefix(operator) + name,
+      ...tokensBefore,
       [TokenType.Function, 'calc(', -1, -1, { value: 'calc(' }],
       [TokenType.OpenParen, '(', -1, -1, undefined],
       ...valueNode.tokens().slice(1),
@@ -90,9 +107,8 @@ export function transformSingleNameValuePair(name: string, operator: MediaFeatur
       [TokenType.Whitespace, ' ', -1, -1, undefined],
       valueToken,
       [TokenType.CloseParen, ')', -1, -1, undefined],
+      ...tokensAfter,
     );
-
-    return transformed;
   } else if (isTokenNode(valueNode)) {
     let token = valueNode.value;
     let tokenValue: number;
@@ -137,11 +153,11 @@ export function transformSingleNameValuePair(name: string, operator: MediaFeatur
       token[1] = token[4].value.toString();
     }
 
-    const transformed = newMediaFeaturePlain(
+    return newMediaFeaturePlain(
       featureNamePrefix(operator) + name,
+      ...tokensBefore,
       token,
+      ...tokensAfter,
     );
-
-    return transformed;
   }
 }

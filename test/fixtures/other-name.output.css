@@ -4,7 +4,7 @@
   }
 }
 
-@media screen and (min-width:500px ) and (max-width: 1200px) and (height) {
+@media screen and (min-width: 500px) and (max-width: 1200px) and (height) {
   .bar {
     display: block;
   }

@@ -1,12 +1,12 @@
-@media screen and (not  ( (min-width:200px ) and (max-width:499px))) {}
+@media screen and (not  ( (min-width: 200px) and (max-width: 499px))) {}
 
-@media screen and not  ( (min-width:200px ) and (max-width:499px)) {}
+@media screen and not  ( (min-width: 200px) and (max-width: 499px)) {}
 
-@media (not  ( (min-width:200px ) and (max-width:499px))) {}
+@media (not  ( (min-width: 200px) and (max-width: 499px))) {}
 
-@media ((min-width: 300px) or  ( (min-width:200px ) and (max-width:499px))) {}
+@media ((min-width: 300px) or  ( (min-width: 200px) and (max-width: 499px))) {}
 
-@media screen and (not  ( (min-width:200px ) and (max-width:499px))),
-	screen and not  ( (min-width:200px ) and (max-width:499px)),
-	(not  ( (min-width:200px ) and (max-width:499px))),
-	((min-width: 300px) or  ( (min-width:200px ) and (max-width:499px))) {}
+@media screen and (not  ( (min-width: 200px) and (max-width: 499px))),
+	screen and not  ( (min-width: 200px) and (max-width: 499px)),
+	(not  ( (min-width: 200px) and (max-width: 499px))),
+	((min-width: 300px) or  ( (min-width: 200px) and (max-width: 499px))) {}

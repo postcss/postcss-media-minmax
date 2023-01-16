@@ -1,35 +1,35 @@
-@media (max-width:299px) {}
+@media (max-width: 299px) {}
 
 @media (max-width: 300px) {}
 
 @media (width: 300px) {}
 
-@media (min-width:301px) {}
+@media (min-width: 301px) {}
 
 @media (min-width: 300px) {}
 
-@media (min-width:301px) {}
+@media (min-width: 301px) {}
 
-@media (min-width:300px ) {}
+@media (min-width: 300px) {}
 
-@media (width:300px ) {}
+@media (width: 300px) {}
 
-@media (max-width:299px) {}
+@media (max-width: 299px) {}
 
-@media (max-width:300px ) {}
+@media (max-width: 300px) {}
 
-@media  (min-width:301px) and (max-width:999px) {}
+@media  (min-width: 301px) and (max-width: 999px) {}
 
-@media  (min-width:300px ) and (max-width:999px) {}
+@media  (min-width: 300px) and (max-width: 999px) {}
 
-@media  (min-width:301px) and (max-width: 1000px) {}
+@media  (min-width: 301px) and (max-width: 1000px) {}
 
-@media  (min-width:300px ) and (max-width: 1000px) {}
+@media  (min-width: 300px) and (max-width: 1000px) {}
 
-@media  (max-width:299px) and (min-width:1001px) {}
+@media  (max-width: 299px) and (min-width: 1001px) {}
 
-@media  (max-width:300px ) and (min-width:1001px) {}
+@media  (max-width: 300px) and (min-width: 1001px) {}
 
-@media  (max-width:299px) and (min-width: 1000px) {}
+@media  (max-width: 299px) and (min-width: 1000px) {}
 
-@media  (max-width:300px ) and (min-width: 1000px) {}
+@media  (max-width: 300px) and (min-width: 1000px) {}

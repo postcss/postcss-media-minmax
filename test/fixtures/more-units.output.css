@@ -10,5 +10,5 @@
 
 @media screen and (resolution) { }
 @media screen and (min-resolution: 1000dpi) and (max-resolution: 3dppx) { }
-@media screen and (min-resolution:1000000dpi ) and (max-resolution: 1000000dpcm) { }
-@media screen and (min-resolution:1 / 1000 ) and (max-resolution: 16 /9) { }
+@media screen and (min-resolution: 1000000dpi) and (max-resolution: 1000000dpcm) { }
+@media screen and (min-resolution: 1 / 1000) and (max-resolution: 16 /9) { }
