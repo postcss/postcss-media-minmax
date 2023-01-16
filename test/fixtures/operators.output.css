@@ -18,21 +18,21 @@
 
 @media (max-width: 300px) {}
 
-@media  (min-width: 301px) and (max-width: 999px) {}
+@media (min-width: 301px) and (max-width: 999px) {}
 
-@media  (min-width: 300px) and (max-width: 999px) {}
+@media (min-width: 300px) and (max-width: 999px) {}
 
-@media  (min-width: 301px) and (max-width: 1000px) {}
+@media (min-width: 301px) and (max-width: 1000px) {}
 
-@media  (min-width: 300px) and (max-width: 1000px) {}
+@media (min-width: 300px) and (max-width: 1000px) {}
 
-@media  (min-width: 1001px) and (max-width: 299px) {}
+@media (min-width: 1001px) and (max-width: 299px) {}
 
-@media  (min-width: 1001px) and (max-width: 300px) {}
+@media (min-width: 1001px) and (max-width: 300px) {}
 
-@media  (min-width: 1000px) and (max-width: 299px) {}
+@media (min-width: 1000px) and (max-width: 299px) {}
 
-@media  (min-width: 1000px) and (max-width: 300px) {}
+@media (min-width: 1000px) and (max-width: 300px) {}
 
 @media (300px > width < 1000px) {}
 

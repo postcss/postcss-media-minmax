@@ -1,5 +1,5 @@
 import { gatherNodeAncestry } from '@csstools/css-parser-algorithms';
-import { TokenType } from '@csstools/css-tokenizer';
+import { stringify, TokenType } from '@csstools/css-tokenizer';
 import { isMediaAnd, isMediaCondition, isMediaConditionListWithAnd, isMediaFeature, isMediaFeatureRange, isMediaFeatureRangeNameValue, isMediaFeatureRangeValueName, isMediaInParens, isMediaQuery, MediaAnd, MediaCondition, MediaConditionListWithAnd, MediaFeature, MediaInParens, MediaQuery, MediaFeatureLT, parse } from '@csstools/media-query-list-parser';
 import { transformSingleNameValuePair } from './transform-single-pair';
 
@@ -26,7 +26,7 @@ export function transform(mediaQueryListString: string) {
     },
   });
 
-  return mediaQueries.map((mediaQuery) => {
+  return mediaQueries.map((mediaQuery, mediaQueryIndex) => {
     const ancestry = gatherNodeAncestry(mediaQuery);
 
     mediaQuery.walk((entry) => {
@@ -199,7 +199,24 @@ export function transform(mediaQueryListString: string) {
       );
     });
 
-    return mediaQuery.toString();
+    const tokens = mediaQuery.tokens();
+    return stringify(
+      ...tokens.filter((x, i) => {
+        // The algorithms above will err on the side of caution and might insert to much whitespace.
+
+        if (i === 0 && mediaQueryIndex === 0 && x[0] === TokenType.Whitespace) {
+          // Trim leading whitespace from the first media query.
+          return false;
+        }
+
+        if (x[0] === TokenType.Whitespace && tokens[i + 1] && tokens[i + 1][0] === TokenType.Whitespace) {
+          // Collapse multiple sequential whitespace tokens
+          return false;
+        }
+
+        return true;
+      })
+    );
   }).join(',');
 }
 
