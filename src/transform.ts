@@ -1,6 +1,6 @@
 import { gatherNodeAncestry } from '@csstools/css-parser-algorithms';
 import { stringify, TokenType } from '@csstools/css-tokenizer';
-import { isMediaAnd, isMediaCondition, isMediaConditionListWithAnd, isMediaFeature, isMediaFeatureRange, isMediaFeatureRangeNameValue, isMediaFeatureRangeValueName, isMediaInParens, isMediaQuery, MediaAnd, MediaCondition, MediaConditionListWithAnd, MediaFeature, MediaInParens, MediaQuery, MediaFeatureLT, parse } from '@csstools/media-query-list-parser';
+import { isMediaAnd, isMediaCondition, isMediaConditionListWithAnd, isMediaFeature, isMediaFeatureRange, isMediaFeatureRangeNameValue, isMediaFeatureRangeValueName, isMediaInParens, isMediaQuery, MediaAnd, MediaCondition, MediaConditionListWithAnd, MediaFeature, MediaInParens, MediaQuery, MediaFeatureLT } from '@csstools/media-query-list-parser';
 import { transformSingleNameValuePair } from './transform-single-pair';
 
 const supportedFeatureNames = new Set([
@@ -18,14 +18,7 @@ const supportedFeatureNames = new Set([
   'width',
 ]);
 
-export function transform(mediaQueryListString: string) {
-  const mediaQueries = parse(mediaQueryListString, {
-    preserveInvalidMediaQueries: true,
-    onParseError: () => {
-      throw new Error(`Unable to parse media query "${mediaQueryListString}"`);
-    },
-  });
-
+export function transform(mediaQueries: Array<MediaQuery>) {
   return mediaQueries.map((mediaQuery, mediaQueryIndex) => {
     const ancestry = gatherNodeAncestry(mediaQuery);
 
@@ -79,8 +72,10 @@ export function transform(mediaQueryListString: string) {
 
         if (operator === MediaFeatureLT.LT || operator === MediaFeatureLT.LT_OR_EQ) {
           featureOne = transformed;
+          featureOne.before = parent.before
         } else {
           featureTwo = transformed;
+          featureTwo.after = parent.after
         }
       }
 
@@ -97,8 +92,10 @@ export function transform(mediaQueryListString: string) {
 
         if (operator === MediaFeatureLT.LT || operator === MediaFeatureLT.LT_OR_EQ) {
           featureTwo = transformed;
+          featureTwo.before = parent.before
         } else {
           featureOne = transformed;
+          featureOne.after = parent.after
         }
       }
 

@@ -43,3 +43,9 @@ test("@media", function(t) {
 
   t.end()
 })
+
+test("@custom-media", function (t) {
+  compareFixtures(t, "custom-media", "should transform")
+
+  t.end()
+})

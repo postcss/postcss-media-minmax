@@ -83,7 +83,7 @@ export function transformSingleNameValuePair(name: string, operator: MediaFeatur
     valueNode = value.value;
   }
 
-  if (isFunctionNode(valueNode) && valueNode.nameTokenValue().toLowerCase() === 'calc') {
+  if (isFunctionNode(valueNode) && valueNode.getName().toLowerCase() === 'calc') {
     let valueToken;
     if (unitsForFeature[name.toLowerCase()]) {
       const tokenValue = power[operator];
