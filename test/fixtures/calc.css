@@ -1,0 +1,35 @@
+@media (width < calc(10px * 50)) {}
+
+@media (width <= calc(10px * 50)) {}
+
+@media (width = calc(10px * 50)) {}
+
+@media (width > calc(10px * 50)) {}
+
+@media (width >= calc(10px * 50)) {}
+
+@media (calc(10px * 50) < width) {}
+
+@media (calc(10px * 50) <= width) {}
+
+@media (calc(10px * 50) = width) {}
+
+@media (calc(10px * 50) > width) {}
+
+@media (calc(10px * 50) >= width) {}
+
+@media (calc(10px * 50) < width < calc(100px * 10)) {}
+
+@media (calc(10px * 50) <= width < calc(100px * 10)) {}
+
+@media (calc(10px * 50) < width <= calc(100px * 10)) {}
+
+@media (calc(10px * 50) <= width <= calc(100px * 10)) {}
+
+@media (calc(10px * 50) > width > calc(100px * 10)) {}
+
+@media (calc(10px * 50) >= width > calc(100px * 10)) {}
+
+@media (calc(10px * 50) > width >= calc(100px * 10)) {}
+
+@media (calc(10px * 50) >= width >= calc(100px * 10)) {}
