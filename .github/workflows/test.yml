@@ -1,0 +1,40 @@
+name: test
+on:
+  push:
+    branches:
+    - 'main'
+    - 'master'
+  pull_request:
+
+concurrency:
+  group: branch-node-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [14, 16, 18]
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: install
+        run: |
+          yarn install
+
+      - name: build
+        run: yarn build
+
+      - name: test
+        run: yarn test

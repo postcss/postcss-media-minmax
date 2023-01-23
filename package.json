@@ -26,6 +26,11 @@
   "engines": {
     "node": ">=10.0.0"
   },
+  "dependencies": {
+    "@csstools/css-parser-algorithms": "^2.0.0",
+    "@csstools/css-tokenizer": "^2.0.0",
+    "@csstools/media-query-list-parser": "^2.0.0"
+  },
   "peerDependencies": {
     "postcss": "8.4.5"
   },
