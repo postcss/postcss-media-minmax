@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "declarationDir": ".",
+    "lib": ["ES2022"],
+    "module": "ES2022",
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "target": "ES2022",
+  },
+  "include": ["./src/**/*"],
+  "exclude": ["dist"],
+}
