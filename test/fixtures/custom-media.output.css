@@ -1,9 +1,9 @@
-@custom-media --one (max-width: 299px) {}
+@custom-media --one (max-width: 299.98px) {}
 
 @custom-media --two (max-width: 300px), (width:300px) {}
 
 @custom-media --three (width: 300px) {}
 
-@custom-media /* a comment */ --four (min-width: 301px) {}
+@custom-media /* a comment */ --four (min-width: 300.02px) {}
 
 @custom-media /* a comment */ --five (min-width: 300px) /* a comment */ {}

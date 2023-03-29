@@ -1,6 +1,7 @@
 import { gatherNodeAncestry } from '@csstools/css-parser-algorithms';
 import { stringify, TokenType } from '@csstools/css-tokenizer';
 import { isMediaAnd, isMediaCondition, isMediaConditionListWithAnd, isMediaFeature, isMediaFeatureRange, isMediaFeatureRangeNameValue, isMediaFeatureRangeValueName, isMediaInParens, isMediaQuery, MediaAnd, MediaCondition, MediaConditionListWithAnd, MediaFeature, MediaInParens, MediaQuery, MediaFeatureLT } from '@csstools/media-query-list-parser';
+import { toLowerCaseAZ } from './to-lower-case-a-z';
 import { transformSingleNameValuePair } from './transform-single-pair';
 
 const supportedFeatureNames = new Set([
@@ -33,8 +34,8 @@ export function transform(mediaQueries: Array<MediaQuery>) {
         return;
       }
 
-      const name = node.name.getName();
-      if (!supportedFeatureNames.has(name.toLowerCase())) {
+      const name = toLowerCaseAZ(node.name.getName());
+      if (!supportedFeatureNames.has(name)) {
         return;
       }
 
@@ -72,10 +73,10 @@ export function transform(mediaQueries: Array<MediaQuery>) {
 
         if (operator === MediaFeatureLT.LT || operator === MediaFeatureLT.LT_OR_EQ) {
           featureOne = transformed;
-          featureOne.before = parent.before
+          featureOne.before = parent.before;
         } else {
           featureTwo = transformed;
-          featureTwo.after = parent.after
+          featureTwo.after = parent.after;
         }
       }
 
@@ -92,11 +93,15 @@ export function transform(mediaQueries: Array<MediaQuery>) {
 
         if (operator === MediaFeatureLT.LT || operator === MediaFeatureLT.LT_OR_EQ) {
           featureTwo = transformed;
-          featureTwo.before = parent.before
+          featureTwo.before = parent.before;
         } else {
           featureOne = transformed;
-          featureOne.after = parent.after
+          featureOne.after = parent.after;
         }
+      }
+
+      if (!featureOne || !featureTwo) {
+        return;
       }
 
       const parensOne = new MediaInParens(
@@ -212,12 +217,12 @@ export function transform(mediaQueries: Array<MediaQuery>) {
         }
 
         return true;
-      })
+      }),
     );
   }).join(',');
 }
 
-function getMediaConditionListWithAndFromAncestry(mediaInParens: MediaInParens, ancestry: Map<unknown, unknown>): MediaConditionListWithAnd | null {
+function getMediaConditionListWithAndFromAncestry(mediaInParens: MediaInParens, ancestry: Map<unknown, unknown>): MediaConditionListWithAnd | undefined {
   let focus: unknown = mediaInParens;
   if (!focus) {
     return;
@@ -240,7 +245,7 @@ function getMediaConditionListWithAndFromAncestry(mediaInParens: MediaInParens, 
   return;
 }
 
-function getMediaConditionInShallowMediaQueryFromAncestry(mediaInParens: MediaInParens, mediaQuery: MediaQuery, ancestry: Map<unknown, unknown>): MediaCondition | null {
+function getMediaConditionInShallowMediaQueryFromAncestry(mediaInParens: MediaInParens, mediaQuery: MediaQuery, ancestry: Map<unknown, unknown>): MediaCondition | undefined {
   let focus: unknown = mediaInParens;
   if (!focus) {
     return;
