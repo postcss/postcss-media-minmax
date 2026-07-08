@@ -1,0 +1,35 @@
+@media (max-width: calc((10px * 50) + -1px)) {}
+
+@media (max-width: calc(10px * 50)) {}
+
+@media (width: calc(10px * 50)) {}
+
+@media (min-width: calc((10px * 50) + 1px)) {}
+
+@media (min-width: calc(10px * 50)) {}
+
+@media (min-width: calc((10px * 50) + 1px)) {}
+
+@media (min-width: calc(10px * 50)) {}
+
+@media (width: calc(10px * 50)) {}
+
+@media (max-width: calc((10px * 50) + -1px)) {}
+
+@media (max-width: calc(10px * 50)) {}
+
+@media (min-width: calc((10px * 50) + 1px)) and (max-width: calc((100px * 10) + -1px)) {}
+
+@media (min-width: calc(10px * 50)) and (max-width: calc((100px * 10) + -1px)) {}
+
+@media (min-width: calc((10px * 50) + 1px)) and (max-width: calc(100px * 10)) {}
+
+@media (min-width: calc(10px * 50)) and (max-width: calc(100px * 10)) {}
+
+@media (min-width: calc((100px * 10) + 1px)) and (max-width: calc((10px * 50) + -1px)) {}
+
+@media (min-width: calc((100px * 10) + 1px)) and (max-width: calc(10px * 50)) {}
+
+@media (min-width: calc(100px * 10)) and (max-width: calc((10px * 50) + -1px)) {}
+
+@media (min-width: calc(100px * 10)) and (max-width: calc(10px * 50)) {}
